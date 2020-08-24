@@ -35,24 +35,24 @@
 | purchase                     | references | null: false, foreign_key: true|
  ### Association
 
-- belongs_to :users
-- has_one :purchases
+- belongs_to :user
+- has_one :purchase
 
 ## orders テーブル
 
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| postal_code   | integer    | null: false                    |
-| prefecture    | string     | null: false                    |
-| municipality  | string     | null: false                    |
-| street_number | string     | null: false                    |
-| building_name | string     | null: false                    |
-| phone         | integer    | null: false                    |
-| purchase      | references | null: false, foreign_key: true |
+| Column                    | Type       | Options                        |
+| ------------------------- | ---------- | ------------------------------ |
+| postal_code               | string     | null: false                    |
+| prefecture_id(activehash) | string     | null: false                    |
+| municipality              | string     | null: false                    |
+| street_number             | string     | null: false                    |
+| building_name             | string     | null: false                    |
+| phone                     | string     | null: false                    |
+| purchase                  | references | null: false, foreign_key: true |
 
 ### Association
 
-- has_one :purchases
+- belongs_to :purchase
 
 ## purchases テーブル
 
@@ -65,6 +65,6 @@
 
 
 ### Association
-- has_many :orders
+- has_one :order
 - belongs_to :users
 - belongs_to :items
