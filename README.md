@@ -32,7 +32,6 @@
 | area_id(activehash)          | integer    | null: false                   |
 | days_for_id(activehash)      | integer    | null: false                   |
 | user                         | references | null: false, foreign_key: true|
-| purchase                     | references | null: false                   |
  ### Association
 
 - belongs_to :user
