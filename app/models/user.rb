@@ -7,7 +7,7 @@ class User < ApplicationRecord
   validates :nickname, :email, :password, presence: true
   validates :email, uniqueness: true
   validates :email, format: { with: /@/ }
-  
+
   validates :password, length: { minimum: 6 }
   # # パスワードに半角英数字を含む
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{6,100}+\z/i }
