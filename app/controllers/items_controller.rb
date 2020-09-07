@@ -13,17 +13,16 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       render :new
-    end    
+    end
   end
 
   private
+
   def sell_items
     params.require(:item).permit(:name, :explanation, :price, :category_id, :status_id, :charge_id, :area_id, :day_id, :image).merge(user_id: current_user.id)
   end
 
   def move_to_index
-    unless user_signed_in?
-      redirect_to action: :index
-    end
+    redirect_to action: :index unless user_signed_in?
   end
 end
