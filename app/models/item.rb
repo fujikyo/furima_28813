@@ -5,11 +5,11 @@ class Item < ApplicationRecord
   belongs_to_active_hash :charge
   belongs_to_active_hash :area
   belongs_to_active_hash :day
-
+  
   validates :name, :explanation, :price, :category, :status, :charge, :image, :area, :day, :user, presence: true
-  validates :category_id, :status_id, :charge_id, :area_id, :day_id, numericality: { other_than: 1 }
-  validates :price, inclusion: { in: 300..9_999_999 }
-
+  validates :category_id, :status_id, :charge_id, :area_id, :day_id, numericality: { other_than: 1 } 
+  validates :price, inclusion: {in: 300..9999999 }
+  
   belongs_to :user
   has_one :purchase
   # active strage
