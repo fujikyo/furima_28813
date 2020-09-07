@@ -28,9 +28,9 @@
 | price                        | integer    | null: false                   |
 | category_id(active_hash)     | integer    | null: false                   |
 | status_id(activehash)        | integer    | null: false                   |
-| charges_id(activehash)       | integer    | null: false                   |
+| charge_id(activehash)        | integer    | null: false                   |
 | area_id(activehash)          | integer    | null: false                   |
-| days_for_id(activehash)      | integer    | null: false                   |
+| day_id(activehash)           | integer    | null: false                   |
 | user                         | references | null: false, foreign_key: true|
  ### Association
 
