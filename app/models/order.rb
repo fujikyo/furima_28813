@@ -5,4 +5,5 @@ class Order < ApplicationRecord
   validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/ }
   validates :phone, format: { with: /\A\d{11}\z/ }
   belongs_to :purchase
+  belongs_to :item
 end
