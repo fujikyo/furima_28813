@@ -42,7 +42,7 @@
 | Column                    | Type       | Options                        |
 | ------------------------- | ---------- | ------------------------------ |
 | postal_code               | string     | null: false                    |
-| prefecture_id(activehash) | integer    | null: false                    |
+| area_id(activehash)       | integer    | null: false                    |
 | municipality              | string     | null: false                    |
 | street_number             | string     | null: false                    |
 | building_name             | string     |                                |
@@ -52,7 +52,6 @@
 ### Association
 
 - belongs_to :purchase
-- belongs_to :item
 
 ## purchases テーブル
 

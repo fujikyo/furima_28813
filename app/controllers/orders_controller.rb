@@ -3,11 +3,12 @@ class OrdersController < ApplicationController
 
   def index
     @item = Item.find(params[:item_id])
+    @order = Order.new
   end
 
   def create
     @item = Item.find(params[:item_id])  
-    @order = Order.new(order_params)
+    @order = PurchaseOrder.new(order_params)
     if @order.valid?
       pay_item
       @order.save
@@ -20,7 +21,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.permit(:price, :token)
+    params.permit(:price, :token, :postal_code, :municipality, :street_number, :building_name, :phone, :item_id, :token, :area_id).merge(user_id: current_user.id)
   end
 
   def pay_item
