@@ -7,12 +7,12 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @item = Item.find(params[:item_id])  
+    @item = Item.find(params[:item_id])
     @order = PurchaseOrder.new(order_params)
     if @order.valid?
       pay_item
       @order.save
-      return redirect_to root_path
+      redirect_to root_path
     else
       render :index
     end
@@ -25,11 +25,11 @@ class OrdersController < ApplicationController
   end
 
   def pay_item
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"] # PAY.JPテスト秘密鍵
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY'] # PAY.JPテスト秘密鍵
     Payjp::Charge.create(
       amount: @item.price,           # 商品の値段
       card: order_params[:token],    # カードトークン
-      currency:'jpy'                 # 通貨の種類(日本円)
+      currency: 'jpy'                 # 通貨の種類(日本円)
     )
   end
 end

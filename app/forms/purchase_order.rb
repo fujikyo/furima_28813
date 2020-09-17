@@ -1,12 +1,12 @@
 class PurchaseOrder
-
   include ActiveModel::Model
   attr_accessor :postal_code, :area_id, :municipality, :street_number, :building_name, :phone, :item_id, :user_id, :token, :price, :purchase_id, :token
   # orderのバリデーション
   validates :token, presence: true
   validates :postal_code, :area_id, :municipality, :street_number, :phone, presence: true
   validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/ }
-  validates :phone, format: { with: /\A\d{11}\z/ }
+  validates :phone, numericality: { only_integer: true }
+  validates :phone, length: { maximum: 11 }
   # purchasesのバリデーション
   validates :item_id, :user_id, presence: true
 
