@@ -54,5 +54,10 @@ RSpec.describe PurchaseOrder, type: :model do
       @purchase_order.valid?
       expect(@purchase_order.errors.full_messages).to include("User can't be blank")
     end
+    it 'tokenが空だと保存できないこと' do
+      @purchase_order.token = nil
+      @purchase_order.valid?
+      expect(@purchase_order.errors.full_messages).to include("Token can't be blank")
+    end
   end
 end
